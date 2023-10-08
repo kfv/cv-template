@@ -20,6 +20,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{multirow}
 \RequirePackage[none]{hyphenat}
+\RequirePackage{lastpage}
 
 %%%%%%%%%%%%%%%%%%%%%
 %                   %
@@ -33,6 +34,7 @@
 \setlength{\headheight}{0pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\cfoot{\thepage/\pageref{LastPage}}
 \renewcommand{\labelitemi}{\tiny\textbullet}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -107,8 +109,9 @@
 }
 
 % Skills Section
-\newenvironment{skills}{
+\newenvironment{skills}[1]{
     \noindent \textbf{SKILLS} \hrulefill \medskip \par
+    #1
     \begin{itemize}
     \itemsep 0pt
 }{
@@ -123,8 +126,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
-\newenvironment{professionalhistory}{
-    \noindent \textbf{PROFESSIOANL HISTORY} \hrulefill \medskip \par
+\newenvironment{employmenthistory}{
+    \noindent \textbf{EMPLOYMENT HISTORY} \hrulefill \medskip \par
 }{
     \medskip
 }
@@ -151,3 +154,15 @@
 }{
     \end{itemize}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       %
+%    Hobbies Section    %
+%                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+\newenvironment{hobbies}{
+    \noindent \textbf{HOBBIES} \hrulefill \medskip \par
+    \itemsep 0pt
+}{}
