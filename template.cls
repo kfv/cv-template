@@ -50,6 +50,7 @@
 \newcommand{\cvgithub}[1]{\gdef\@github{#1}}
 \newcommand{\cvtwitter}[1]{\gdef\@twitter{#1}}
 \newcommand{\cvlinkedin}[1]{\gdef\@linkedin{#1}}
+\newcommand{\cvtelnumber}[1]{\gdef\@telnumber{#1}}
 
 %%%%%%%%%%%%%%%%%%%%
 %                  %
@@ -64,6 +65,7 @@
 \cvgithub{"Github Handler"}
 \cvtwitter{"Twitter Handler"}
 \cvlinkedin{"LinkedIn Handler"}
+\cvtelnumber{+1-234-567-8900}
 
 %%%%%%%%%%%%
 %          %
@@ -85,6 +87,8 @@
                 {\faTwitter \ twitter.com/\@twitter}             \\
         {}  & \href{https://www.linkedin.com/in/\@linkedin}
                 {\faLinkedinSquare \ linkedin.com/in/\@linkedin} \\
+        {}  & \href{tel:\@telnumber}
+                {\faPhone \ \@telnumber}
     \end{tabular*}
     \medskip
 }{}
