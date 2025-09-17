@@ -11,7 +11,6 @@
 %
 \RequirePackage[margin=50pt]{geometry}
 \RequirePackage[hidelinks]{hyperref}
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[british]{babel}
 \RequirePackage{lmodern}
 \RequirePackage{fontspec}
@@ -23,14 +22,16 @@
     }{
         \newfontfamily\fontawesome{FontAwesome.otf}
     }
-    \newcommand{\faGlobe}{\fontawesome\symbol{"F0AC}} % chktex 18
-    \newcommand{\faEnvelope}{\fontawesome\symbol{"F0E0}} % chktex 18
-    \newcommand{\faGithub}{\fontawesome\symbol{"F09B}} % chktex 18
+    \newcommand{\faGlobe}{\fontawesome\symbol{"F0AC}}          % chktex 18
+    \newcommand{\faEnvelope}{\fontawesome\symbol{"F0E0}}       % chktex 18
+    \newcommand{\faGithub}{\fontawesome\symbol{"F09B}}         % chktex 18
     \newcommand{\faLinkedinSquare}{\fontawesome\symbol{"F08C}} % chktex 18
-    \newcommand{\faPhone}{\fontawesome\symbol{"F095}} % chktex 18
+    \newcommand{\faPhone}{\fontawesome\symbol{"F095}}          % chktex 18
 \else
-    % For pdfLaTeX: require fontawesome package
-    \RequirePackage{fontawesome}
+    \ifPDFTeX{}
+        \RequirePackage[utf8]{inputenc}
+        \RequirePackage{fontawesome}
+    \fi
 \fi
 \RequirePackage{tabularx}
 \RequirePackage{fancyhdr}
