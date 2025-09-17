@@ -15,7 +15,23 @@
 \RequirePackage[british]{babel}
 \RequirePackage{lmodern}
 \RequirePackage{fontspec}
-\RequirePackage{fontawesome}
+\RequirePackage{iftex}
+\ifXeTeX{}
+    % For XeLaTeX: use direct font loading (fontawesome package seems broken)
+    \IfFontExistsTF{FontAwesome}{
+        \newfontfamily\fontawesome{FontAwesome}
+    }{
+        \newfontfamily\fontawesome{FontAwesome.otf}
+    }
+    \newcommand{\faGlobe}{\fontawesome\symbol{"F0AC}} % chktex 18
+    \newcommand{\faEnvelope}{\fontawesome\symbol{"F0E0}} % chktex 18
+    \newcommand{\faGithub}{\fontawesome\symbol{"F09B}} % chktex 18
+    \newcommand{\faLinkedinSquare}{\fontawesome\symbol{"F08C}} % chktex 18
+    \newcommand{\faPhone}{\fontawesome\symbol{"F095}} % chktex 18
+\else
+    % For pdfLaTeX: require fontawesome package
+    \RequirePackage{fontawesome}
+\fi
 \RequirePackage{tabularx}
 \RequirePackage{fancyhdr}
 \RequirePackage{multirow}
