@@ -3,10 +3,7 @@
 Welcome to my cv-template repository. Herein you can find my
 personal CV [template.cls](template.cls) document class file,
 along with an example file that outlines a basic structure
-and usage guidelines. Accompanying the
-[example.tex](example.tex) file, you'll also find a PDF
-version, [example.pdf](example.pdf), to see how the final
-document looks like.
+and usage guidelines.
 
 This document class is originally written for
 [my personal CV](https://kfv.io/about/cv.pdf).
@@ -15,11 +12,15 @@ flexibility that a broader public template shall meet.
 You might need to tweak certain aspects such as paper margins,
 environments, or exposed commands to fit your specific needs.
 
+## Requirements
+
+- **latexmk** for automated building
+- **FontAwesome** for icons
+
 ## Getting Started
 
-To get started with using this template, clone this repository
-and use the example file provided as a starting point and
-modify it to suit your requirements.
+The repository includes a comprehensive [Makefile](./Makefile)
+you can consult for easy building.
 
 ## Contributing
 
