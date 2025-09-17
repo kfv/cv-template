@@ -50,8 +50,8 @@
 \setlength{\headheight}{0pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\cfoot{\thepage/\pageref{LastPage}}
-\renewcommand{\labelitemi}{\tiny\textbullet}
+\cfoot{\thepage/\pageref{LastPage}} % texlab: ignore
+\renewcommand{\labelitemi}{\small\textbullet}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %                     %
@@ -74,12 +74,12 @@
 %%%%%%%%%%%%%%%%%%%%
 %
 %
-\cvname{"Full Name"}
-\cvwww{"Personal Website"}
-\cvemail{"Email Address"}
-\cvgithub{"Github Handler"}
-\cvlinkedin{"LinkedIn Handler"}
-\cvtelnumber{+1-234-567-8900}
+\cvname{Full Name}
+\cvwww{Personal Website}
+\cvemail{Email Address}
+\cvgithub{Github Handler}
+\cvlinkedin{LinkedIn Handler}
+\cvtelnumber{+1-234-567-8900} % chktex 8
 
 %%%%%%%%%%%%
 %          %
@@ -90,17 +90,17 @@
 %
 \newenvironment{cvheader}{
     \noindent
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill} } p{350pt} | l }
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill} } p{350pt}!{\vline} l }
         \multirow{4}{*}{\noindent\textbf{\huge{\@fullname}}}
-            & \href{\@website}{\faGlobe \ \@website}             \\
+            & \href{\@website}{\faGlobe\normalfont\ \@website}             \\
         {}  & \href{mailto:\@email}
-                {\faEnvelope \ \@email}                          \\
+                {\faEnvelope\normalfont\ \@email}                          \\
         {}  & \href{https://github.com/\@github}
-                {\faGithub \ github.com/\@github}                \\
+                {\faGithub\normalfont\ github.com/\@github}                \\
         {}  & \href{https://www.linkedin.com/in/\@linkedin}
-                {\faLinkedinSquare \ linkedin.com/in/\@linkedin} \\
+                {\faLinkedinSquare\normalfont\ linkedin.com/in/\@linkedin} \\
         {}  & \href{tel:\@telnumber}
-                {\faPhone \ \@telnumber}
+                {\faPhone\normalfont\ \@telnumber}
     \end{tabular*}
     \medskip
 }{}
@@ -118,7 +118,7 @@
 %
 %
 \newcommand{\overview}[1]{
-    \noindent \textbf{OVERVIEW} \hrulefill \medskip \par
+    \noindent \textbf{OVERVIEW} \hrulefill\medskip \par
     #1
     \medskip
     \medskip
@@ -126,10 +126,10 @@
 
 % Skills Section
 \newenvironment{skills}[1]{
-    \noindent \textbf{SKILLS} \hrulefill \medskip \par
+    \noindent \textbf{SKILLS} \hrulefill\medskip \par
     #1
     \begin{itemize}
-    \itemsep 0pt
+    \itemsep=0pt
 }{
     \end{itemize}
     \medskip
@@ -143,7 +143,7 @@
 %
 %
 \newenvironment{employmenthistory}{
-    \noindent \textbf{EMPLOYMENT HISTORY} \hrulefill \medskip \par
+    \noindent \textbf{EMPLOYMENT HISTORY} \hrulefill\medskip \par
 }{
     \medskip
 }
@@ -151,7 +151,7 @@
 \newcommand{\position}[2]{\noindent \emph{#1} \hfill \textit{#2}}
 \newenvironment{bulletpoints}{
     \begin{itemize}
-    \itemsep 0pt
+    \itemsep=0pt
 }{
     \end{itemize}
 }
@@ -164,9 +164,9 @@
 %
 %
 \newenvironment{volunteerwork}{
-    \noindent \textbf{VOLUNTEER WORK} \hrulefill \medskip \par
+    \noindent \textbf{VOLUNTEER WORK} \hrulefill\medskip \par
     \begin{itemize}
-    \itemsep 0pt
+    \itemsep=0pt
 }{
     \end{itemize}
 }
@@ -179,6 +179,6 @@
 %
 %
 \newenvironment{hobbies}{
-    \noindent \textbf{HOBBIES} \hrulefill \medskip \par
-    \itemsep 0pt
+    \noindent \textbf{HOBBIES} \hrulefill\medskip \par
+    \itemsep=0pt
 }{}
