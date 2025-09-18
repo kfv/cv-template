@@ -21,7 +21,7 @@ view: $(PDFFILE)
 
 clean:
 	@echo "Cleaning up build artefacts..."
-	$(LATEXMK) -C $(TEXFILE)
+	$(LATEXMK) -C $(LATEXMKOPTS) $(TEXFILE)
 
 rebuild: clean all
 
