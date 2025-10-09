@@ -156,6 +156,7 @@
 }
 \newcommand{\company}[2]{\noindent \textbf{#1} \hfill \textit{#2} \\}
 \newcommand{\position}[2]{\noindent \emph{#1} \hfill \textit{#2}}
+\newcommand{\brief}[1]{\par \medskip#1}
 \newenvironment{bulletpoints}{
     \begin{itemize}
     \itemsep=0pt
