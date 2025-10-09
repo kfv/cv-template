@@ -125,7 +125,13 @@
     \medskip
 }
 
-% Skills Section
+%%%%%%%%%%%%%%%%%%%%
+%                  %
+%  Skills Section  %
+%                  %
+%%%%%%%%%%%%%%%%%%%%
+%
+%
 \newenvironment{skills}[1]{
     \noindent \textbf{SKILLS} \hrulefill\medskip \par
     #1
