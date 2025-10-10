@@ -36,7 +36,6 @@
 \RequirePackage{tabularx}
 \RequirePackage{fancyhdr}
 \RequirePackage{multirow}
-\RequirePackage[none]{hyphenat}
 \RequirePackage{lastpage}
 
 %%%%%%%%%%%%%%%%%%%%%
