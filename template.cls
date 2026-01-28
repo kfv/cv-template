@@ -163,6 +163,20 @@
     \end{itemize}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%
+%                    %
+%  Projects Section  %
+%                    %
+%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+\newenvironment{projects}{
+    \noindent \textbf{PROJECTS} \hrulefill\medskip \par
+}{
+    \medskip
+}
+\newcommand{\project}[2]{\noindent \textbf{#1} \hfill \textit{#2} \\}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          %
 %  Volunteer Work Section  %
