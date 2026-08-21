@@ -81,6 +81,23 @@
 \cvlinkedin{LinkedIn Handler}
 \cvtelnumber{+1-234-567-8900} % chktex 8
 
+% RFC 6068 allows only addr-spec in the mailto <to> component, not a
+% display-name. The RFC 5322 mailbox "Name <addr>" belongs in the To
+% header field, with space and angle brackets percent-encoded.
+\ExplSyntaxOn % chktex 1
+\str_new:N \l_cv_to_str
+\cs_generate_variant:Nn \str_replace_all:Nnn { Nne }
+\cs_new_protected:Npn \cv@emailhref
+  {
+    \str_set:Nx \l_cv_to_str { \@fullname \c_space_tl < \@email > }
+    \str_replace_all:Nne \l_cv_to_str {~} { \c_percent_str 20 }
+    \str_replace_all:Nne \l_cv_to_str {<} { \c_percent_str 3C }
+    \str_replace_all:Nne \l_cv_to_str {>} { \c_percent_str 3E }
+    \exp_args:Ne \href{mailto:?to=\l_cv_to_str}
+      {\faEnvelope\normalfont\ \@email}
+  }
+\ExplSyntaxOff % chktex 1
+
 %%%%%%%%%%%%
 %          %
 %  Header  %
@@ -93,8 +110,7 @@
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill} } p{350pt}!{\vline} l }
         \multirow{4}{*}{\noindent\textbf{\huge{\@fullname}}}
             & \href{\@website}{\faGlobe\normalfont\ \@website}             \\
-        {}  & \href{mailto:\@email}
-                {\faEnvelope\normalfont\ \@email}                          \\
+        {}  & \cv@emailhref                                                \\
         {}  & \href{https://github.com/\@github}
                 {\faGithub\normalfont\ github.com/\@github}                \\
         {}  & \href{https://www.linkedin.com/in/\@linkedin}
