@@ -1,5 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{template}[2023/07/29 kfv's cv class]
+\newif\ifcv@demo
+\DeclareOption{demo}{\cv@demotrue}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
 \LoadClass[a4paper, 11pt]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -67,6 +71,22 @@
 \newcommand{\cvlinkedin}[1]{\gdef\@linkedin{#1}}
 \newcommand{\cvtelnumber}[1]{\gdef\@telnumber{#1}}
 
+\newcommand{\cv@ifset}[2]{%
+    \ifcsname#1\endcsname
+        \expandafter\ifx\csname#1\endcsname\@empty
+        \else
+            #2%
+        \fi
+    \fi
+}
+
+\newcommand{\cv@contactline}[1]{%
+    \cv@hdrsep
+    #1%
+    \gdef\cv@hdrsep{\\}%
+}
+\gdef\cv@hdrsep{}
+
 %%%%%%%%%%%%%%%%%%%%
 %                  %
 %  Default Values  %
@@ -74,12 +94,22 @@
 %%%%%%%%%%%%%%%%%%%%
 %
 %
-\cvname{Full Name}
-\cvwww{Personal Website}
-\cvemail{Email Address}
-\cvgithub{Github Handler}
-\cvlinkedin{LinkedIn Handler}
-\cvtelnumber{+1-234-567-8900} % chktex 8
+% Placeholders are demo-only. Real CVs omit any \cv... they do not
+% want; pass [demo] to fill unset fields for a sample compile.
+\cvname{}
+\cvwww{}
+\cvemail{}
+\cvgithub{}
+\cvlinkedin{}
+\cvtelnumber{}
+\ifcv@demo
+    \cvname{Full Name}
+    \cvwww{Personal Website}
+    \cvemail{Email Address}
+    \cvgithub{Github Handler}
+    \cvlinkedin{LinkedIn Handler}
+    \cvtelnumber{+1-234-567-8900} % chktex 8
+\fi
 
 % RFC 6068 allows only addr-spec in the mailto <to> component, not a
 % display-name. The RFC 5322 mailbox "Name <addr>" belongs in the To
@@ -116,14 +146,24 @@
         \huge\bfseries\@fullname
         &
         \begin{tabular}[c]{@{}l@{}}
-            \href{\@website}{\faGlobe\normalfont\ \@website}               \\
-            \cv@emailhref                                                  \\
-            \href{https://github.com/\@github}
-                {\faGithub\normalfont\ github.com/\@github}                \\
-            \href{https://www.linkedin.com/in/\@linkedin}
-                {\faLinkedinSquare\normalfont\ linkedin.com/in/\@linkedin} \\
-            \href{tel:\@telnumber}
-                {\faPhone\normalfont\ \@telnumber}
+            \gdef\cv@hdrsep{}%
+            \cv@ifset{@website}{%
+                \cv@contactline{%
+                    \href{\@website}{\faGlobe\normalfont\ \@website}}}%
+            \cv@ifset{@email}{%
+                \cv@contactline{\cv@emailhref}}%
+            \cv@ifset{@github}{%
+                \cv@contactline{%
+                    \href{https://github.com/\@github}
+                        {\faGithub\normalfont\ github.com/\@github}}}%
+            \cv@ifset{@linkedin}{%
+                \cv@contactline{%
+                    \href{https://www.linkedin.com/in/\@linkedin}
+                        {\faLinkedinSquare\normalfont\ linkedin.com/in/\@linkedin}}}%
+            \cv@ifset{@telnumber}{%
+                \cv@contactline{%
+                    \href{tel:\@telnumber}
+                        {\faPhone\normalfont\ \@telnumber}}}%
         \end{tabular}
     \end{tabularx}%
     \endgroup\par\medskip
