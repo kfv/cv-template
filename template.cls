@@ -105,25 +105,33 @@
 %%%%%%%%%%%%
 %
 %
-\newenvironment{cvheader}{
-    \noindent
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill} } p{350pt}!{\vline} l }
-        \multirow{4}{*}{\noindent\textbf{\huge{\@fullname}}}
-            & \href{\@website}{\faGlobe\normalfont\ \@website}             \\
-        {}  & \cv@emailhref                                                \\
-        {}  & \href{https://github.com/\@github}
+\newenvironment{cvheader}{%
+    \par\noindent\begingroup
+    \renewcommand{\tabularxcolumn}[1]{m{##1}}%
+    \begin{tabularx}{\textwidth}{@{}
+        >{\raggedright\arraybackslash}X
+        @{\hspace{0.6em}}!{\vline}@{\hspace{2em}}
+        l
+        @{}}%
+        \huge\bfseries\@fullname
+        &
+        \begin{tabular}[c]{@{}l@{}}
+            \href{\@website}{\faGlobe\normalfont\ \@website}               \\
+            \cv@emailhref                                                  \\
+            \href{https://github.com/\@github}
                 {\faGithub\normalfont\ github.com/\@github}                \\
-        {}  & \href{https://www.linkedin.com/in/\@linkedin}
+            \href{https://www.linkedin.com/in/\@linkedin}
                 {\faLinkedinSquare\normalfont\ linkedin.com/in/\@linkedin} \\
-        {}  & \href{tel:\@telnumber}
+            \href{tel:\@telnumber}
                 {\faPhone\normalfont\ \@telnumber}
-    \end{tabular*}
-    \medskip
+        \end{tabular}
+    \end{tabularx}%
+    \endgroup\par\medskip
 }{}
 
-\newcommand{\header}{
-    \begin{cvheader}
-    \end{cvheader}
+\newcommand{\header}{%
+    \begin{cvheader}%
+    \end{cvheader}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%
