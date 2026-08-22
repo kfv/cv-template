@@ -223,6 +223,19 @@
 \newcommand{\school}[2]{\noindent \textbf{#1} \hfill \textit{#2} \\}
 \newcommand{\degree}[2]{\noindent \emph{#1} \hfill \textit{#2}}
 
+%%%%%%%%%%%%%%%%%%%%
+%                  %
+%  Custom Section  %
+%                  %
+%%%%%%%%%%%%%%%%%%%%
+%
+%
+\newenvironment{custom}[1]{
+    \noindent \textbf{#1} \hrulefill\medskip \par
+}{
+    \medskip
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %                       %
 %    Hobbies Section    %
