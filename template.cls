@@ -208,6 +208,21 @@
     \end{itemize}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%                     %
+%  Education Section  %
+%                     %
+%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+\newenvironment{education}{
+    \noindent \textbf{EDUCATION} \hrulefill\medskip \par
+}{
+    \medskip
+}
+\newcommand{\school}[2]{\noindent \textbf{#1} \hfill \textit{#2} \\}
+\newcommand{\degree}[2]{\noindent \emph{#1} \hfill \textit{#2}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %                       %
 %    Hobbies Section    %
